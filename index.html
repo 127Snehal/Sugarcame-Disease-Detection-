@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sugarcane Disease Detection</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <header>
+         
+        <div class="wrapper">
+            <ul class="nav-area">
+                <li><a href="#">Home</a></li>
+                <li><a href="#">About</a></li>
+            </ul>
+            
+        </div>   
+        <div class="welcome-text">
+            <h1 style="color: #cf0a0a;">Sugarcane Disease Detection</h1>
+            <p><h2><b  style="color: #020202;">Identify Sugarcane Diseases accurately</h2></b></p><br>
+            <div class="upload-box">
+                <label for="files">
+                     <h2><b>Upload Image</b></h2>
+                </label>
+                <form action="/predict" method="post" enctype="multipart/form-data">
+                    <!-- <input  name="file" type="file" id="files" accept=".png, .jpg, .jpeg" /> -->
+                  <input name="file" type="file" id="files"/>
+                    <br>
+                    <br>
+                    <br><br>
+                    <input type="submit" value="Detect Disease">
+                </form>
+                {% if message %}
+                <p>{{ message }}</p>
+                {% endif %}
+            </div>
+        </div>
+    </header>
+</body>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+    body {
+        font-family: 'Poppins', sans-serif;
+        height: 100vh;
+        overflow: hidden;
+    }
+    .wrapper {
+        width: 100%;
+        margin: auto;
+    }
+    header {
+        background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6));
+        height: 100%;
+        -webkit-background-size: cover;
+        background-size: cover;
+        background-position: center center;
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        backdrop-filter: blur(8px)
+    }
+    .nav-area {
+        position: absolute;
+        top: 30px;
+        right: 30px;
+        list-style: none;
+    }
+    .nav-area li {
+        display: inline-block;
+        margin-left: 20px;
+    }
+    .nav-area li a {
+        color: #fff;
+        text-decoration: none;
+        font-family: poppins;
+        font-size: 16px;
+    }
+    .nav-area li a:hover {
+        color: #ffe15d;
+    }
+    .welcome-text {
+        text-align: center;
+        color: #fff;
+        position: absolute;
+        top: 40%;  
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 1;
+    }
+    .welcome-text h1 {
+        font-size: 48px;
+        text-shadow: 3px 3px black;
+    }
+    .welcome-text p {
+        font-size: 18px;
+        margin-top: 20px;
+    }
+    .upload-box {
+        width: 300px;  
+        height: 180px; 
+        border: 2px solid #ccc;
+        border-radius: 5px;
+        padding: 5px;
+        text-align: center;
+        margin-bottom: 20px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .camera-icon {
+        margin-bottom: 10px;
+        width: 50px;
+        height: 50px;
+    }
+
+    .upload-box label {
+        font-weight: bold;
+        cursor: pointer;
+    }
+
+    .upload-box input[type="file"] {
+        display: none;
+    }
+
+    .upload-box input[type="submit"] {
+        padding: 10px 10px;
+        background-color: #d80d0dce;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
+
+    .upload-box input[type="submit"]:hover {
+        background-color: #45a049;
+    }
+
+    @media (max-width: 600px) {
+        .nav-area {
+            position: static;
+            margin-top: 20px;
+        }
+        .nav-area li {
+            display: block;
+            margin-left: 0;
+            margin-bottom: 10px;
+        }
+        .welcome-text {
+            position: static;
+            margin: 0 20px;
+        }
+        .welcome-text h1 {
+            font-size: 30px;
+        }
+        .welcome-text p {
+            font-size: 14px;
+        }
+    }
+</style>
+
+</html>
+ 
